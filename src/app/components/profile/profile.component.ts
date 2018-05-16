@@ -8,11 +8,11 @@ import { GithubService } from './../../services/github.service';
 })
 export class ProfileComponent implements OnInit {
 
+  user: any;
+
   constructor(private githubService: GithubService) {
     this.githubService.getUser()
-      .subscribe(user => {
-        console.log(user);
-      });
+      .subscribe(user => this.user = user);
   }
 
   ngOnInit() {

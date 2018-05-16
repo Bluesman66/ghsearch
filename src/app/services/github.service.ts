@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class GithubService {
     console.log('Github Service Ready...');
   }
 
-  getUser(){
-    return this.http.get(`http://api.github.com/users/${this.username}?client_id=${this.client_id}&client_secret=${this.client_secret}`)
-      .pipe(map(res => res.json()));      
+  getUser() {
+    const query = `http://api.github.com/users/${this.username}?client_id=${this.client_id}&client_secret=${this.client_secret}`;
+    return this.http.get(query).pipe(map(res => res.json()));      
   }
 }
