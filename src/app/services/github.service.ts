@@ -18,4 +18,9 @@ export class GithubService {
     const query = `http://api.github.com/users/${this.username}?client_id=${this.client_id}&client_secret=${this.client_secret}`;
     return this.http.get(query).pipe(map(res => res.json()));      
   }
+
+  getRepos() {
+    const query = `http://api.github.com/users/${this.username}/repos?client_id=${this.client_id}&client_secret=${this.client_secret}`;
+    return this.http.get(query).pipe(map(res => res.json()));      
+  }
 }
